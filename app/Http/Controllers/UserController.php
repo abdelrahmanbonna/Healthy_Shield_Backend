@@ -93,7 +93,7 @@ class UserController extends Controller
 
         if (request()->email && request('username') != '' && request('username') != $user->email){
             $validator = Validator::make($request->all(), [
-                'email' => 'required|email|unique:admins',
+                'email' => 'required|email',
                 ]);
             if ($validator->fails()) {
                 return response()->json($validator->errors(), 401);
