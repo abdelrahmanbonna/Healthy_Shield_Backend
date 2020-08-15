@@ -18,10 +18,20 @@ class TblContactUsController extends Controller
     public function store(Request $request)
     {
   
+        $validator = Validator::make($request->all(), [
+            'email'   => 'required|email',
+            'name' => 'required',
+            'message' => 'required',
+            'phone' => 'required',
+            'accounttype' => 'required',
+        ]);
+        if ($validator->fails()) {
+            return response()->json(['error'=>$validator->errors()], 401);
+        }
+
         $tblcontactUs = new TblContactUs();
-        $user_email = User::find(auth()->id())->email;
         $tblcontactUs->name = $request->name;
-        $tblcontactUs->email = $user_email;
+        $tblcontactUs->email = $request->email;
         $tblcontactUs->message = $request->message;
         $tblcontactUs->phone = $request->phone;
         $tblcontactUs->accounttype = $request->accounttype;

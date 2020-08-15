@@ -12,7 +12,7 @@ class MedicalPlace extends Authenticatable
     //
     use HasApiTokens, Notifiable;
     protected $guard = 'medicalplace';
-    protected $table = 'medicalplaces'; 
+    protected $table = 'medical_places'; 
 
     protected $fillable = [
         'name',

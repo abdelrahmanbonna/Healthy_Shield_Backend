@@ -33,23 +33,31 @@ Route::post('/medicalplace-login','MedicalPlaceController@login');
 Route::post('/doctor-register','DoctorController@register');
 Route::post('/doctor-login','DoctorController@login');
 
+//Report route
+Route::post('/report','TblContactUsController@store');
+
+//User Routes
 Route::group(['prefix' => 'user' , 'middleware' => 'auth:user-api'], function(){
     Route::get('/info','UserController@details');
 
 });
 
+//Admin routes
 Route::group(['prefix' => 'admin' , 'middleware' => 'auth:admin-api'], function(){
     Route::get('/info','AdminController@details');
 });
 
+//Medical places routes
 Route::group(['prefix' => 'medicalplace' , 'middleware' => 'auth:medicalplace-api'], function(){
     Route::get('/info','MedicalPlaceController@details');
 });
 
+//Ambulance routes
 Route::group(['prefix' => 'ambulance' , 'middleware' => 'auth:ambulance-api'], function(){
     Route::get('/info','AmbulanceController@details');
 });
 
+//Doctor routes
 Route::group(['prefix' => 'doctor' , 'middleware' => 'auth:doctor-api'], function(){
     Route::get('/info','DoctorController@details');
 });
