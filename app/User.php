@@ -40,6 +40,7 @@ class User extends Authenticatable
         'height',
         'weight',
         'insurance',
+        'accepted',
         'password'
     ];
 

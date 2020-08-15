@@ -34,6 +34,7 @@ class CreateUsersTable extends Migration
             $table->double('weight', 8, 2);
             $table->string('insurance');
             $table->string('password');
+            $table->boolean('accepted');
             $table->timestamps();
         });
     }

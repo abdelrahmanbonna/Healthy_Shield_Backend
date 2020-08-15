@@ -43,7 +43,8 @@ class UserController extends Controller
             'height' => 'required',
             'weight' => 'required',
             'insurance' => 'required',
-            'password' => 'required|confirmed|min:6',            
+            'password' => 'required|confirmed|min:6',  
+            'accepted' => 'required',          
         ]);
 
         if ($validator->fails()) {
@@ -69,6 +70,7 @@ class UserController extends Controller
         $user->height = $request->height;
         $user->weight = $request->weight;
         $user->insurance = $request->insurance;
+        $user->accepted = $request->accepted;
         $user->save();
         $token = $user->createToken('User')->accessToken;    
         return response()->json([$user,['user-token' => $token]], 200);
@@ -115,6 +117,7 @@ class UserController extends Controller
         $user->height = $request->height;
         $user->weight = $request->weight;
         $user->insurance = $request->insurance;
+        $user->accepted = $request->accepted;
         $user->update();
         return response()->json([$user], 200);
     }
