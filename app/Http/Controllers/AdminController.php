@@ -73,7 +73,7 @@ class AdminController extends Controller
     public function login(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'username'   => 'required|username',
+            'username'   => 'required',
             'password' => 'required|min:6'
         ]);
 

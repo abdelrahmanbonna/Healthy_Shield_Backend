@@ -7,7 +7,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Passport\HasApiTokens;
 
-class Ambulance extends Model
+class Ambulance extends Authenticatable
 {
     //
     use HasApiTokens, Notifiable;
@@ -23,7 +23,7 @@ class Ambulance extends Model
     ];
 
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
     ];
 
 }
