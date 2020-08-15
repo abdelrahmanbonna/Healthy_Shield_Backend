@@ -39,7 +39,7 @@ Route::group(['prefix' => 'user' , 'middleware' => 'auth:user-api'], function(){
 });
 
 Route::group(['prefix' => 'admin' , 'middleware' => 'auth:admin-api'], function(){
-    Route::get('/info','AdminRegisterController@details');
+    Route::get('/info','AdminController@details');
 });
 
 Route::group(['prefix' => 'medicalplace' , 'middleware' => 'auth:medicalplace-api'], function(){
