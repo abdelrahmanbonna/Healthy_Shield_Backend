@@ -27,7 +27,7 @@ class MedicalPlaceController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'email' => 'required|email|unique:employees',
+            'email' => 'required|email',
             'password' => 'required|confirmed|min:6',            
             'address' => 'required',
             'phone' => 'required',
@@ -52,7 +52,7 @@ class MedicalPlaceController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'email' => 'required|email|unique:employees',
+            'email' => 'required|email',
             'password' => 'required|confirmed|min:6',            
             'address' => 'required',
             'phone' => 'required',

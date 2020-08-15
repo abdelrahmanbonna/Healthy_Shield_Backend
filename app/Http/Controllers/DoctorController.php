@@ -27,7 +27,7 @@ class DoctorController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'email' => 'required|email|unique:employees',
+            'email' => 'required|email|unique:doctors',
             'password' => 'required|confirmed|min:6',            
             'address' => 'required',
             'phone' => 'required',

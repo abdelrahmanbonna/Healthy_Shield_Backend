@@ -9,14 +9,14 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Auth;
 use App\Appointment;
 use Validator;
-use App\Http\Resources\EmployeeResource;
+use App\Http\Resources\AppointmentResource;
 
 class AppointmentController extends Controller
 {
 
     public function index()
     {
-        return EmployeeResource::collection(Appointment::all());
+        return AppointmentResource::collection(Appointment::all());
     }
 
     public function userAppoimtments($id){
@@ -40,6 +40,7 @@ class AppointmentController extends Controller
         $appointment->prescription = $request->prescription;
         $appointment->doctor_id = $request->doctor_id;
         $appointment->user_id = $request->user_id;
+        $appointment->date = $request->date;
         $appointment->medicalplaces_id = $request->medicalplaces_id;
         $appointment->save();   
         return response()->json(["success"=>"Recorded Successfully!"],201);
