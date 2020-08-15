@@ -126,7 +126,7 @@ class UserController extends Controller
     public function login(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'username'   => 'required|username',
+            'email'   => 'required|email',
             'password' => 'required|min:6'
         ]);
 
@@ -134,7 +134,7 @@ class UserController extends Controller
             return response()->json(['error'=>$validator->errors()], 401);
         }
 
-        if (Auth::guard('user')->attempt(['username' => $request->username, 'password' => $request->password], $request->get('remember'))) {
+        if (Auth::guard('user')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
             $token = Auth::guard('user')->user()->createToken('User')->accessToken;
             return response()->json(['access_token' => $token], 200);
         } else {
