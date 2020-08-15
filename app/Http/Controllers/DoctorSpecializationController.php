@@ -13,10 +13,6 @@ use App\Http\Resources\EmployeeResource;
 
 class DoctorSpecializationController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('guest:doctorspecialization');
-    }
 
     public function index()
     {

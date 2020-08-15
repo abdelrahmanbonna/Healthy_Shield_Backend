@@ -13,21 +13,21 @@ use App\Http\Resources\EmployeeResource;
 
 class AppointmentController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('guest:appointment');
-    }
 
     public function index()
     {
         return EmployeeResource::collection(Appointment::all());
     }
 
+    public function userAppoimtments($id){
 
-    public function register(Request $request)
+    }
+
+    public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'prescription' => 'required',          
+            'prescription' => 'required',     
+            'date' => 'required',      
             'doctor_id' => 'required',
             'user_id' => 'required',
             'medicalplaces_id' => 'required',
@@ -67,10 +67,6 @@ class AppointmentController extends Controller
         return response()->json([$appointment], 200);
     }
     
-    public function details()
-    { 
-        return response()->json([auth()->user()], 200);
-    }
 
     public function destroy($id)
     {
