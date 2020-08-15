@@ -66,4 +66,5 @@ Route::group(['prefix' => 'ambulance' , 'middleware' => 'auth:ambulance-api'], f
 //Doctor routes
 Route::group(['prefix' => 'doctor' , 'middleware' => 'auth:doctor-api'], function(){
     Route::get('/info','DoctorController@details');
+    Route::get('/find-byId','DoctorController@findUserbyId');
 });

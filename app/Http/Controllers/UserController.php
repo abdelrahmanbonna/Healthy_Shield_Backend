@@ -22,6 +22,15 @@ class UserController extends Controller
         return EmployeeResource::collection(User::all());
     }
 
+    public function findUserbyId($id){
+        $user= User::find($id);
+        if(is_null($user))
+        {
+            return response()->json(["error"=>"Record Not Found!"],404);
+        }
+        return response()->json($user,201);
+    }
+
     public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [
