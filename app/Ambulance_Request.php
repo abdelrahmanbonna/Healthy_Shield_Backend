@@ -9,6 +9,7 @@ class Ambulance_Request extends Model
     //
     protected $fillable = [
         'date',
+        'location_link',
         'user_id',
     ];
 

@@ -15,7 +15,7 @@ class AmbulanceRequestController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('guest:employee');
+        $this->middleware('guest:request');
     }
 
     public function index()
@@ -29,26 +29,28 @@ class AmbulanceRequestController extends Controller
         $validator = Validator::make($request->all(), [
             'user_id' => 'required',
             'date' => 'required',
+            'location_link' => 'required',
         ]);
 
         if ($validator->fails()) {
             return response()->json($validator->errors(), 401);
         }
-        $employee = new Ambulance_Request();
-        $employee->user_id = $request->user_id;
-        $employee->date = $request->date;
-        $employee->save();  
-        return response()->json(["success"=>"Recorded Successfully!"],201);
+        $request = new Ambulance_Request();
+        $request->user_id = $request->user_id;
+        $request->date = $request->date;
+        $request->location_link = $request->location_link;
+        $request->save();  
+        return response()->json(["success"=>"Recorded Successfully!"],200);
     }
 
     public function destroy($id)
     {
-        $employee= Ambulance_Request::find($id);
-        if(is_null($employee))
+        $request= Ambulance_Request::find($id);
+        if(is_null($request))
         {
             return response()->json(["error"=>"Record Not Found!"],404);
         }
-        $employee->delete();
-        return response()->json(["success"=>"Record Deleted Successfully!"],201);
+        $request->delete();
+        return response()->json(["success"=>"Record Deleted Successfully!"],200);
     }
 }

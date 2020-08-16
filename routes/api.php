@@ -39,13 +39,16 @@ Route::post('/report-add','TblContactUsController@store');
 //DoctorSpecailization route
 Route::post('/specialization-add','DoctorSpecializationController@register');
 
+//Medical history routes
 Route::apiResource('/appointment','AppointmentController');
 Route::get('/user-appointments/{id}','AppointmentController@userAppoimtments');
+
+//Report routes
+Route::post('/make-report','TblContactUsController@store');
 
 //User Routes
 Route::group(['prefix' => 'user' , 'middleware' => 'auth:user-api'], function(){
     Route::get('/info','UserController@details');
-
 });
 
 //Admin routes

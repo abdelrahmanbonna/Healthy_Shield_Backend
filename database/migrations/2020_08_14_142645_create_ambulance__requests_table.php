@@ -16,6 +16,7 @@ class CreateAmbulanceRequestsTable extends Migration
         Schema::create('ambulance__requests', function (Blueprint $table) {
             $table->id();
             $table->datetime('date');
+            $table->string('location_link');
             $table->integer('user_id');
             $table->timestamps();
         });
