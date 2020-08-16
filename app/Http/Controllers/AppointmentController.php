@@ -20,7 +20,7 @@ class AppointmentController extends Controller
     }
 
     public function userAppoimtments($id){
-        return AppointmentResource::collection(Appointment::where('user_id', $id )->all());
+        return AppointmentResource::collection(Appointment::all()->where('user_id', $id ));
     }
 
     public function store(Request $request)
