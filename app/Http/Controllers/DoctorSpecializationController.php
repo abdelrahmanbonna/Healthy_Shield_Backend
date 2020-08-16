@@ -34,9 +34,10 @@ class DoctorSpecializationController extends Controller
         return response()->json(["success"=>"Recorded Successfully!"],201);
     }
 
-    public function details()
+    public function details($id)
     { 
-        return response()->json([auth()->user()], 200);
+        $spec = DoctorSpecialization::find($id);
+        return response()->json($spec, 200);
     }
 
     public function destroy($id)

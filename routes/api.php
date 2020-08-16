@@ -38,6 +38,7 @@ Route::post('/report-add','TblContactUsController@store');
 
 //DoctorSpecailization route
 Route::post('/specialization-add','DoctorSpecializationController@register');
+Route::get('/specialization','DoctorSpecializationController@details');
 
 //Ambulance Requests route
 Route::post('/ambulance-requests-add','AmbulanceRequestController@register');
