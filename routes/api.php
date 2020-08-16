@@ -39,16 +39,16 @@ Route::post('/report-add','TblContactUsController@store');
 //DoctorSpecailization route
 Route::post('/specialization-add','DoctorSpecializationController@register');
 
+//Ambulance Requests route
+Route::post('/ambulance-requests-add','AmbulanceRequestController@register');
+
 //Medical history routes
 Route::apiResource('/appointment','AppointmentController');
-Route::get('/user-appointments/{id}','AppointmentController@userAppoimtments');
-
-//Report routes
-Route::post('/make-report','TblContactUsController@store');
 
 //User Routes
 Route::group(['prefix' => 'user' , 'middleware' => 'auth:user-api'], function(){
     Route::get('/info','UserController@details');
+    Route::get('/user-appointments/{id}','AppointmentController@userAppoimtments');
 });
 
 //Admin routes
@@ -70,4 +70,5 @@ Route::group(['prefix' => 'ambulance' , 'middleware' => 'auth:ambulance-api'], f
 Route::group(['prefix' => 'doctor' , 'middleware' => 'auth:doctor-api'], function(){
     Route::get('/info','DoctorController@details');
     Route::get('/find-byId','DoctorController@findUserbyId');
+    Route::get('/user-appointments/{id}','AppointmentController@userAppoimtments');
 });
