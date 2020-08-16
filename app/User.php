@@ -27,6 +27,7 @@ class User extends Authenticatable
         'city',
         'gender',
         'job',
+        'phone',
         'birthdate',
         'cutoflegs',
         'cutofarms',

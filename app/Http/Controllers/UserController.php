@@ -40,6 +40,7 @@ class UserController extends Controller
             'city' => 'required',
             'gender' => 'required',
             'job' => 'required',
+            'phone'=>'required',
             'birthdate' => 'required',
             'cutoflegs' => 'required',
             'cutofarms' => 'required',
@@ -67,6 +68,7 @@ class UserController extends Controller
         $user->city = $request->city;
         $user->gender = $request->gender;
         $user->job = $request->job;
+        $user->phone = $request->phone;
         $user->birthdate = $request->birthdate;
         $user->cutoflegs = $request->cutoflegs;
         $user->cutofarms = $request->cutofarms;
@@ -114,6 +116,7 @@ class UserController extends Controller
         $user->city = $request->city;
         $user->gender = $request->gender;
         $user->job = $request->job;
+        $user->phone = $request->phone;
         $user->birthdate = $request->birthdate;
         $user->cutoflegs = $request->cutoflegs;
         $user->cutofarms = $request->cutofarms;
