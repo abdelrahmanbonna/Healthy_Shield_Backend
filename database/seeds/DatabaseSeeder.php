@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             SpecializationSeeder::class,
             DoctorSeeder::class,
             AmbulanceSeeder::class,
+            MedicalPlaceSeeder::class,
         ]);
     }
 }
