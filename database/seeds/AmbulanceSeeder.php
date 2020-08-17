@@ -11,6 +11,9 @@ class AmbulanceSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $ambulances=[];
+        foreach ($ambulances as $a){
+            Doctor::firstOrCreate($ambulance);
+        }
     }
 }

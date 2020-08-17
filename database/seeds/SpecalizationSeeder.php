@@ -28,5 +28,8 @@ class SpecalizationSeeder extends Seeder
             ['specialization'=>'Dermatologists'],
             ['specialization'=>'Cardiologists'],
         ];
+        foreach ($specalizations as $spec){
+            Doctor::firstOrCreate($spec);
+        }
     }
 }
